@@ -10,6 +10,7 @@ export function LoginPage() {
 
   async function onSubmit(e: FormEvent) {
     e.preventDefault()
+    setError(undefined)
     const res = await signIn(email, password)
     if (res.ok) {
       setError(undefined)
