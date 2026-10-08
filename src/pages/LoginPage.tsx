@@ -13,6 +13,7 @@ export function LoginPage() {
     setError(undefined)
     const res = await signIn(email, password)
     if (res.ok) {
+      setError(undefined)
       setUser(res.name)
     } else {
       setError(res.message)
@@ -25,7 +26,13 @@ export function LoginPage() {
     <form className="login" onSubmit={onSubmit}>
       <h1>Log in to EduPay</h1>
       <Input label="Email" type="email" value={email} onChange={setEmail} />
-      <Input label="Password" type="password" value={password} onChange={setPassword} error={error} />
+      <Input
+        label="Password"
+        type="password"
+        value={password}
+        onChange={setPassword}
+        error={error}
+      />
       <Button type="submit">Log in</Button>
     </form>
   )
